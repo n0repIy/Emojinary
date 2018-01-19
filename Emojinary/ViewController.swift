@@ -9,13 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     @IBOutlet weak var tblview: UITableView!
     
     var emojizz = ["⚓️","🐋","😕","🙁","🤬","💩","👾","🤷‍♀️"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
         tblview.dataSource = self
         tblview.delegate = self
@@ -38,7 +39,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print(sender)
+        let defViewCon = segue.destination as! DefViewController
+        defViewCon.emoji = sender as! String
     }
     
     override func didReceiveMemoryWarning() {
